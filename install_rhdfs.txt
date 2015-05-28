@@ -8,7 +8,7 @@ $ HADOOP_CMD=/usr/bin/hadoop R CMD INSTALL rhdfs_1.0.8.tar.gz
 
 ### Rhadoop Setup
 $ echo $JAVA_HOME
-$ JAVA_HOME=/usr/java/jdk1.6.0_31-cloudera R CMD javareconf
+$ JAVA_HOME=/usr/java/jdk1.6.0_31 R CMD javareconf
 
 ### Setup hdfs
 > Sys.setenv(HADOOP_CMD="/usr/bin/hadoop")
