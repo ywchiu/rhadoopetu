@@ -1,4 +1,4 @@
-$ su ¡V
+$su - 
 ## 5u4wj6 ##
 $ R
 > install.packages(c("codetools", "Rcpp", "RJSONIO", "bitops", "digest", "functional", "stringr", "plyr", "reshape2", "rJava", "caTools"))
