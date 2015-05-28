@@ -1,0 +1,11 @@
+$ su ¡V 
+## 5u4wj6 ##
+$ R
+> install.packages(c("codetools", "Rcpp", "RJSONIO", "bitops", "digest", "functional", "stringr", "plyr", "reshape2", "rJava", "caTools"))
+$ wget --no-check-certificate https://github.com/RevolutionAnalytics/rmr2/releases/download/3.3.1/rmr2_3.3.1.tar.gz
+
+$ R CMD INSTALL rmr2_3.3.1.tar.gz
+
+
+
+
