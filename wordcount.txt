@@ -4,8 +4,8 @@ Sys.setenv(HADOOP_STREAMING="/usr/lib/hadoop-mapreduce/hadoop-streaming.jar")
 library(rmr2) 
 library(rhdfs) 
 hdfs.init() 
-hdfs.mkdir("/user/cloudera/wordcount/data")
-hdfs.put("wc_input.txt", "/user/cloudera/wordcount/data") 
+hdfs.mkdir("/user/eva/wordcount/data")
+hdfs.put("wc_input.txt", "/user/eva/wordcount/data") 
 
 # Wordcount Mapper
 map <- function(k,lines) {
