@@ -16,3 +16,6 @@ $ JAVA_HOME=/usr/java/jdk1.6.0_31 R CMD javareconf
 > library(rhdfs)
 > hdfs.init()
 
+### if no permission to access
+su - hdfs
+hadoop fs -chown eva:eva /user/eva
