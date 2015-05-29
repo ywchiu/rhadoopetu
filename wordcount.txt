@@ -1,0 +1,32 @@
+Sys.setenv(HADOOP_CMD="/usr/bin/hadoop")
+Sys.setenv(HADOOP_STREAMING="/usr/lib/hadoop-mapreduce/hadoop-streaming.jar")
+
+library(rmr2) 
+library(rhdfs) 
+hdfs.init() 
+hdfs.mkdir("/user/cloudera/wordcount/data")
+hdfs.put("wc_input.txt", "/user/cloudera/wordcount/data") 
+
+# Wordcount Mapper
+map <- function(k,lines) {
+  words.list <- strsplit(lines, ' +')
+  words <- unlist(words.list)
+  return( keyval(words, 1) ) 
+} 
+
+# Wordcount Reducer
+reduce <- function(word, counts) { 
+  keyval(word, sum(counts)) 
+} 
+
+
+hdfs.root <- '/user/eva/wordcount' 
+hdfs.data <- file.path(hdfs.root, 'data') 
+hdfs.out <- file.path(hdfs.root, 'out') 
+wordcount <- function (input, output=NULL) { 
+  mapreduce(input=input, output=output, input.format="text", map=map, reduce=reduce) 
+} 
+out <- wordcount(hdfs.data, hdfs.out)
+
+results <- from.dfs(out) 
+results$key[order(results$val, decreasing = TRUE)][1:10]
